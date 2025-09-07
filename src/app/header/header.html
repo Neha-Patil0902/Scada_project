@@ -1,0 +1,60 @@
+<nav class="flex items-center justify-between mx-[10px] py-3 bg-gray-100 shadow-md rounded-lg">
+  <!-- Logo -->
+   <div class="flex items-center space-x-2">
+   <img src="assets/test.jpg" alt="Test Image" class="h-12 w-12 rounded-full" />
+    <span class="text-xl font-bold text-gray-800">Scada-Energy </span>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="flex list-none space-x-6">
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="no-underline px-3 py-2 rounded-lg hover:bg-gray-200 transition"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        class="no-underline px-3 py-2 rounded-lg hover:bg-gray-200 transition"
+        >Dashboard</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/signup"
+        routerLinkActive="active"
+        class="no-underline px-3 py-2 rounded-lg hover:bg-gray-200 transition"
+        >SignUp</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/login"
+        routerLinkActive="active"
+        class="no-underline px-3 py-2 rounded-lg hover:bg-gray-200 transition"
+        >Login</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/about"
+        routerLinkActive="active"
+        class="no-underline px-3 py-2 rounded-lg hover:bg-gray-200 transition"
+        >About</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/contact"
+        routerLinkActive="active"
+        class="no-underline px-3 py-2 rounded-lg hover:bg-gray-200 transition"
+        >Contact</a
+      >
+    </li>
+  </ul>
+</nav>

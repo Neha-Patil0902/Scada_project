@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "Admin@123",
+      "email": "admin@example.com",
+      "role": "Admin",
+      "id": "6a39"
+    },
+    {
+      "username": "Yash",
+      "password": "Yash@123",
+      "email": "yash@123.com",
+      "role": "User",
+      "id": "bb05"
+    },
+    {
+      "id": "e7d7",
+      "username": "Neha",
+      "password": "Neha@123",
+      "email": "neha@0902.com",
+      "role": "User"
+    },
+    {
+      "id": "1b5f",
+      "username": "abc",
+      "password": "Abcde@123",
+      "email": "abc@example.com",
+      "role": "User"
+    },
+    {
+      "id": "a803",
+      "username": "xyz",
+      "password": "Xyzabc@123",
+      "email": "xyz@example.com",
+      "role": "User"
+    },
+    {
+      "id": "f441",
+      "username": "Viraj",
+      "password": "Viraj@123",
+      "email": "viraj@123.com",
+      "role": "User",
+      "reason": "Automation Testing",
+      "expiry": true,
+      "duration": 9
+    },
+    {
+      "id": "7f11",
+      "username": "Tanu",
+      "password": "Tanu@123",
+      "email": "tanu@123.com",
+      "role": "User",
+      "reason": "Development",
+      "expiry": true,
+      "duration": 10
+    }
+  ]
+}
