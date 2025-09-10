@@ -1,0 +1,80 @@
+<div class="flex justify-center items-center h-screen bg-gradient-to-br from-gray-100 to-gray-200">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md flex flex-col text-center">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Create Account</h1>
+    
+    <!-- Username -->
+    <label class="text-left text-sm font-medium text-gray-700">Username</label>
+    <input formControlName="username" type="text" class="border rounded-lg p-3 w-full mt-1 mb-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"/>
+    @if (username?.invalid && username?.touched) {
+      <small class="text-red-500 text-sm block mb-2">Min 3 chars required</small>
+    }
+
+    <!-- Email -->
+    <label class="text-left text-sm font-medium text-gray-700">Email</label>
+    <input formControlName="email" type="email" class="border rounded-lg p-3 w-full mt-1 mb-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"/>
+    @if (email?.invalid && email?.touched) {
+      <small class="text-red-500 text-sm block mb-2">Email is invalid</small>
+    }
+
+    <!-- Authentication -->
+    <label class="text-left text-sm font-medium text-gray-700">Authentication</label>
+    <select formControlName="authentication" class="border rounded-lg p-3 w-full mt-1 mb-4 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+      <option value="" disabled>Please select</option>
+      <option value="AD">Active Directory(AD)</option>
+      <option value="Local">Local</option>
+    </select>
+
+    <!-- Password -->
+    <label class="text-left text-sm font-medium text-gray-700">Password</label>
+    <input formControlName="password" type="password" class="border rounded-lg p-3 w-full mt-1 mb-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"/>
+    @if (password?.invalid && password?.touched) {
+      <small class="text-red-500 text-sm block mb-2">
+        Password must contain uppercase, lowercase, number & special char
+      </small>
+    }
+
+    <!-- Confirm Password -->
+    <label class="text-left text-sm font-medium text-gray-700">Confirm Password</label>
+    <input formControlName="confirmPassword" type="password" class="border rounded-lg p-3 w-full mt-1 mb-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"/>
+        @if ((confirmPassword?.touched || password?.touched) && profileForm.errors?.['passwordMismatch']) {
+    <small class="text-red-500 text-sm block mb-2">Passwords do not match</small>
+    }
+    
+    <!-- Role -->
+    <label class="text-left text-sm font-medium text-gray-700">Role</label>
+    <select formControlName="role" class="border rounded-lg p-3 w-full mt-1 mb-4 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+      <option value="" disabled>Please select</option>
+      <option value="User">User</option>
+      <option value="Admin">Admin</option>
+    </select>
+
+    <!-- User Expiry -->
+    <label class="text-left text-sm font-medium text-gray-700">User Expiry</label>
+    <div class="flex items-center gap-4 mb-3">
+      <label class="flex items-center gap-1">
+        <input type="radio" [value]="false" formControlName="expiry" class="accent-blue-500" />
+        No
+      </label>
+      <label class="flex items-center gap-1">
+        <input type="radio" [value]="true" formControlName="expiry" class="accent-blue-500" />
+        Yes
+      </label>
+    </div>
+
+    <!-- Expiry Duration -->
+    <label class="text-left text-sm font-medium text-gray-700">Expiry Duration</label>
+    <div class="flex items-center gap-2 mb-4">
+      <input formControlName="duration" type="number" min="1" class="border rounded-lg p-3 w-24 focus:ring-2 focus:ring-blue-400 focus:outline-none"/>
+      <span class="text-gray-600">Days</span>
+    </div>
+
+    <!-- Reason -->
+    <label class="text-left text-sm font-medium text-gray-700">Reason</label>
+    <textarea formControlName="reason" rows="1" class="border rounded-lg p-1 w-full mt-1 mb-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"></textarea>
+
+    <!-- Submit -->
+    <button type="submit" class="bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all">
+      Signup
+    </button>
+  </form>
+</div>

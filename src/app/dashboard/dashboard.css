@@ -1,0 +1,17 @@
+.dashboard h2 {
+  font-size: 26px;
+  color: #1d3557;
+  margin-bottom: 10px;
+}
+.logout-btn {
+  background: blue;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,14 @@
+.task-list{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+form{
+   text-align: center;
+}
+h2{
+    text-align: center;
+}
+h2{
+    color: rgb(242, 25, 112);
+}
