@@ -1,0 +1,141 @@
+<div class="flex gap-6 p-4">
+  <!-- Table -->
+  <div class="w-1/2">
+    <table class="min-w-full border border-gray-700">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-2 py-1 border">Converter ID</th>
+          <th class="px-2 py-1 border">Port Number</th>
+          <th class="px-2 py-1 border">IP Address</th>
+          <th class="px-2 py-1 border">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let c of converters"
+          (click)="select(c)"
+          class="cursor-pointer hover:bg-gray-50"
+          [class.bg-blue-50]="selected?.id===c.id">
+
+          <td class="px-2 py-1 border">{{c.id}}</td>
+          <td class="px-2 py-1 border">{{c.portNumber}}</td>
+          <td class="px-2 py-1 border">{{c.ipAddress}}</td>
+          <td class="px-2 py-1 border">
+            <div
+              class="h-6 w-20 rounded-full mx-auto"
+              [class.bg-green-500]="c.isActive"
+              [class.bg-red-500]="!c.isActive"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Form -->
+  <div class="w-2/2 bg-gray-100 p-3 rounded shadow">
+    <h2 class="text-lg font-bold mb-4">Company Information</h2>
+
+    <div *ngIf="selected" class="space-y-3">
+      <div>
+        <label class="block text-sm">Converter ID:</label>
+        <input
+          [(ngModel)]="selected.id"
+          readonly
+          class="border rounded px-2 py-1 w-full bg-gray-100"
+        />
+      </div>
+      <div>
+        <label class="block text-sm">Port Number:</label>
+        <input
+          [(ngModel)]="selected.portNumber"
+          type="number"
+          class="border rounded px-2 py-1 w-full"
+        />
+      </div>
+      <div>
+        <label class="block text-sm">IP Address:</label>
+        <input
+          [(ngModel)]="selected.ipAddress"
+          class="border rounded px-2 py-1 w-full"
+        />
+      </div>
+      <div class="flex items-center space-x-2">
+        <input type="checkbox" [(ngModel)]="selected.isActive" />
+        <label>Is Active</label>
+      </div>
+      <div *ngIf="!selected" class="text-gray-500">Select a row to edit.</div>
+
+      <tr *ngFor="let converter of converters; let i = index">
+  <td class="px-2 py-1 border">{{converter.id}}</td>
+  <td class="px-2 py-1 border">{{converter.portNumber}}</td>
+  <td class="px-2 py-1 border">{{converter.ipAddress}}</td>
+  <td class="px-2 py-1 border">
+    <div class="h-6 w-20 rounded-full mx-auto"
+         [class.bg-green-500]="converter.isActive"
+         [class.bg-red-500]="!converter.isActive">
+    </div>
+  </td>
+  <td class="px-2 py-1 border">
+    <button (click)="deletePort(i)" class="bg-red-600 text-white px-2 py-1 rounded">
+      Delete
+    </button>
+  </td>
+</tr>
+
+      <!--Add New Port form-->
+       
+        <div class="p-4">
+          <div class="flex gap-7"> 
+         <button
+            (click)="save()"
+             class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Save Changes
+          </button>
+         <button *ngIf="!showAddForm"
+            (click)="startAdd()"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Add Port
+         </button>
+        </div>
+
+       
+      <div *ngIf="showAddForm" class="bg-gray-50 border p-4 rounded mt-4 space-y-3">
+        <h2 class="text-lg font-bold">Add New Port</h2>
+
+        <div>
+      <label class="block text-sm">Converter ID:</label>
+      <input [(ngModel)]="newPort.id" type="number" class="border rounded px-2 py-1 w-full"/>
+    </div>
+    <div>
+      <label class="block text-sm">Port Number:</label>
+      <input [(ngModel)]="newPort.portNumber" type="number" class="border rounded px-2 py-1 w-full"/>
+    </div>
+    <div>
+      <label class="block text-sm">IP Address:</label>
+      <input [(ngModel)]="newPort.ipAddress" class="border rounded px-2 py-1 w-full"/>
+    </div>
+    <div class="flex items-center space-x-2">
+      <input type="checkbox" [(ngModel)]="newPort.isActive"/>
+      <label>Is Active</label>
+    </div>
+
+    
+    
+
+    <!--Buttons-->  
+   
+     
+    <div class="flex gap-6">
+      <button (click)="addPort() " class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Add New Port
+      </button>
+
+      <button (click)="cancelAdd()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Cancel
+      </button>
+    </div>
+
+    </div>   
+    
+  </div>
+</div>

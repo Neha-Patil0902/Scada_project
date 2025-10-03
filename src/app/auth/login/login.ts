@@ -49,6 +49,9 @@ export class Login {
       }
     });
   }
+  cancelbtn(){
+    this.router.navigate(['/signup']);
+  }
 }
  /* get email(){
   return this.loginForm.get('email');

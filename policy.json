@@ -1,0 +1,10 @@
+{
+  "passwordPolicy": {
+    "requireUppercase": 0,
+    "requireLowercase": 1,
+    "requireDigit": 0,
+    "requireSpecialChar": 1,
+    "passwordExpiryDays": 12,
+    "passwordHistoryCount": 11
+  }
+}

@@ -39,7 +39,17 @@
         @if ((confirmPassword?.touched || password?.touched) && profileForm.errors?.['passwordMismatch']) {
     <small class="text-red-500 text-sm block mb-2">Passwords do not match</small>
     }
+
     
+     <!-- Password Policy -->
+    <div class="flex justify-end mt-4">
+      <button type="button" 
+        class="bg-red-500 text-white px-1 py-1 rounded-lg text-[11px] font-semibold hover:bg-red-600 transition-all">
+        Password Policy
+      </button>
+    </div>
+    <app-display-policy *ngIf="passwordPolicy" [policy]="passwordPolicy"></app-display-policy>
+
     <!-- Role -->
     <label class="text-left text-sm font-medium text-gray-700">Role</label>
     <select formControlName="role" class="border rounded-lg p-3 w-full mt-1 mb-4 focus:ring-2 focus:ring-blue-400 focus:outline-none">
@@ -48,9 +58,11 @@
       <option value="Admin">Admin</option>
     </select>
 
-    <!-- User Expiry -->
-    <label class="text-left text-sm font-medium text-gray-700">User Expiry</label>
-    <div class="flex items-center gap-4 mb-3">
+  <div class="flex items-start gap-16 mb-4">
+  <!-- User Expiry -->
+  <div>
+    <label class="text-left text-sm font-medium text-gray-700 block mb-1">User Expiry</label>
+    <div class="flex items-center gap-4">
       <label class="flex items-center gap-1">
         <input type="radio" [value]="false" formControlName="expiry" class="accent-blue-500" />
         No
@@ -60,20 +72,25 @@
         Yes
       </label>
     </div>
+  </div>
 
-    <!-- Expiry Duration -->
-    <label class="text-left text-sm font-medium text-gray-700">Expiry Duration</label>
-    <div class="flex items-center gap-2 mb-4">
-      <input formControlName="duration" type="number" min="1" class="border rounded-lg p-3 w-24 focus:ring-2 focus:ring-blue-400 focus:outline-none"/>
+  <!-- Expiry Duration -->
+  <div>
+    <label class="text-left text-sm font-medium text-gray-700 block mb-1">Expiry Duration</label>
+    <div class="flex items-center gap-2">
+      <input formControlName="duration" type="number" min="1"
+        class="border rounded-lg p-1 w-24 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
       <span class="text-gray-600">Days</span>
     </div>
+  </div>
+</div>
 
     <!-- Reason -->
     <label class="text-left text-sm font-medium text-gray-700">Reason</label>
     <textarea formControlName="reason" rows="1" class="border rounded-lg p-1 w-full mt-1 mb-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"></textarea>
 
     <!-- Submit -->
-    <button type="submit" class="bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all">
+    <button type="submit" class="bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-all">
       Signup
     </button>
   </form>

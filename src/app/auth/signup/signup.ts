@@ -1,16 +1,19 @@
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, AbstractControl } from '@angular/forms';
 import { Users } from '../../services/users';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.models';
+import { PasswordPolicyService } from '../../services/password-policy';
+import { DisplayPolicy } from "../../display-policy/display-policy";
+import { PasswordPolicyModel } from '../../models/password-policy.model';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NgIf],
+  imports: [FormsModule, ReactiveFormsModule, NgIf, DisplayPolicy,CommonModule],
   templateUrl: './signup.html',
-  styleUrl: './signup.css'
+  styleUrls: ['./signup.css']
 })
 export class Signup {
 
@@ -24,18 +27,30 @@ export class Signup {
     role: new FormControl('', Validators.required),
     reason: new FormControl('', Validators.required),
     expiry: new FormControl(false, Validators.required),
-    duration: new FormControl(0, [Validators.required, Validators.min(1)])
-  }, { validators: this.passwordsMatch }); // <-- add custom validator
+    duration: new FormControl(1, [Validators.required, Validators.min(1)])
+  }, { validators: Signup.passwordsMatch }); // <-- add custom validator
 
-  constructor(private userService: Users, private router: Router) {}
+  passwordPolicy: PasswordPolicyModel | undefined ;
 
+  constructor(private userService: Users, private router: Router, private policyService: PasswordPolicyService) {}
+
+  ngOnInit(): void {
+    // fetch policy when signup loads
+    this.policyService.getPolicy().subscribe({
+      next: (policy) => {
+        this.passwordPolicy = policy;
+      },
+      error: (err) => console.error('Error loading policy', err)
+    });
+  }
   // Custom validator for password match
-  passwordsMatch(group: AbstractControl) {
+  static passwordsMatch(group: AbstractControl) {
     const password = group.get('password')?.value;
     const confirm = group.get('confirmPassword')?.value;
     return password === confirm ? null : { passwordMismatch: true };
   }
 
+  //getter methods
   get username() { return this.profileForm.get('username'); }
   get email() { return this.profileForm.get('email'); }
   get authentication() { return this.profileForm.get('authentication'); }
@@ -90,5 +105,7 @@ export class Signup {
         alert('Could not check existing users.');
       }
     });
+    
   }
+ 
 }

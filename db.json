@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "username": "admin",
+      "username": "ADMIN",
       "password": "Admin@123",
       "email": "admin@example.com",
       "role": "Admin",
@@ -77,6 +77,19 @@
       "reason": "All purposes",
       "expiry": true,
       "duration": 20
+    },
+    {
+      "id": "192c",
+      "username": "Siya",
+      "email": "siya@123.com",
+      "authentication": "Local",
+      "password": "Siya@123",
+      "role": "User",
+      "reason": "Any",
+      "expiry": true,
+      "duration": 10
     }
   ]
+ 
+  
 }

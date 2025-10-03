@@ -1,24 +1,32 @@
-<div class="flex justify-center items-center h-screen bg-gradient-to-r from-blue-100 to-blue-200">
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md flex flex-col text-center">
-    <h2 class="text-2xl font-bold text-gray-800 mb-6">Login</h2>
+<div class="flex justify-center items-center h-screen bg-gradient-to-r from-gray-100 to-gray-200">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md flex flex-col text-center space-y-3">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Login</h2>
 
     <!-- Email -->
-    <label class="text-left text-sm font-medium text-gray-700">Email</label>
+    <label class="text-left text-lg font-medium text-gray-700">Email</label>
     <input formControlName="email" type="email" class="border rounded-lg p-3 w-full mt-1 mb-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"/>
     @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
       <small class="text-red-500 text-sm block mb-2">Email is required</small>
     }
 
     <!-- Password -->
-    <label class="text-left text-sm font-medium text-gray-700">Password</label>
+    <label class="text-left text-lg font-medium text-gray-700">Password</label>
     <input formControlName="password" type="password" class="border rounded-lg p-3 w-full mt-1 mb-4 focus:ring-2 focus:ring-indigo-400 focus:outline-none" />
     @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
       <small class="text-red-500 text-sm block mb-2">Password is required</small>
     }
 
     <!-- Submit -->
-    <button type="submit" class="bg-indigo-500 text-white py-3 rounded-lg font-semibold hover:bg-indigo-600 transition-all">
-      Login
-    </button>
+    <div class="flex items-center">
+      <label class="w-25"></label>
+      <div class="flex gap-5">
+        <button type="submit" class="bg-green-500 text-white px-7 py-3 text-lg rounded-lg font-semibold hover:bg-green-600 transition-all">
+          Login
+        </button>
+        <button (click)="cancelbtn()" class="bg-red-500 text-white px-7 py-3 text-lg rounded-lg font-semibold hover:bg-red-600 transition-all">
+          Cancel
+        </button>
+      </div>
+    </div>
   </form>
 </div>

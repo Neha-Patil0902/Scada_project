@@ -1,0 +1,31 @@
+<div class="bg-white shadow-lg rounded-2xl p-6 w-full max-w-md">
+  <h2 class="text-xl font-bold mb-4">Saved Password Policy</h2>
+  <table class="table-auto w-full border border-gray-200 text-left">
+    <tbody>
+      <tr class="border-b">
+        <td class="p-2 font-medium">Require Uppercase</td>
+        <td class="p-2">{{ policy.requireUppercase ? 'Yes' : 'No' }}</td>
+      </tr>
+      <tr class="border-b">
+        <td class="p-2 font-medium">Require Lowercase</td>
+        <td class="p-2">{{ policy.requireLowercase ? 'Yes' : 'No' }}</td>
+      </tr>
+      <tr class="border-b">
+        <td class="p-2 font-medium">Require Digit</td>
+        <td class="p-2">{{ policy.requireDigit ? 'Yes' : 'No' }}</td>
+      </tr>
+      <tr class="border-b">
+        <td class="p-2 font-medium">Require Special Character</td>
+        <td class="p-2">{{ policy.requireSpecialChar ? 'Yes' : 'No' }}</td>
+      </tr>
+      <tr class="border-b">
+        <td class="p-2 font-medium">Password Expiry (days)</td>
+        <td class="p-2">{{ policy.passwordExpiryDays }}</td>
+      </tr>
+      <tr>
+        <td class="p-2 font-medium">Password History Count</td>
+        <td class="p-2">{{ policy.passwordHistoryCount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

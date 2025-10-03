@@ -1,0 +1,58 @@
+{
+  "converters": [
+    {
+      "id": "1",
+      "portNumber": 502,
+      "ipAddress": "192.168.1.1",
+      "isActive": false
+    },
+    {
+      "id": "2",
+      "portNumber": 502,
+      "ipAddress": "192.168.1.2",
+      "isActive": true
+    },
+    {
+      "id": "3",
+      "portNumber": 502,
+      "ipAddress": "192.168.1.3",
+      "isActive": true
+    },
+    {
+      "id": "4",
+      "portNumber": 502,
+      "ipAddress": "192.168.1.4",
+      "isActive": true
+    },
+    {
+      "id": "0",
+      "portNumber": 0,
+      "ipAddress": "",
+      "isActive": false
+    },
+    {
+      "id": "e34a",
+      "portNumber": 506,
+      "ipAddress": "9090",
+      "isActive": true
+    },
+    {
+      "id": "5",
+      "portNumber": 500,
+      "ipAddress": "9999",
+      "isActive": true
+    },
+    {
+      "id": 0,
+      "portNumber": 0,
+      "ipAddress": "",
+      "isActive": false
+    },
+    {
+      "id": 9,
+      "portNumber": 0,
+      "ipAddress": "",
+      "isActive": false
+    }
+  ]
+}
